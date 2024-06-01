@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_SERVER_ENDPOINT=https://www.alichowdhury.ca
+      - NEXT_PUBLIC_SERVER_ENDPOINT=https://www.alichowdhury.ca:4000
     ports: 
       - "3000:3000"
       - "4000:4000"
