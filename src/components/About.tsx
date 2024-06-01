@@ -28,7 +28,7 @@ export default function About() {
             }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
           >
-            <Image
+            <img
               src={image}
               width={200}
               height={400}
