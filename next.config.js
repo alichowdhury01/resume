@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
-import nextMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-import rehypePrism from "@mapbox/rehype-prism";
+const nextMDX = require("@next/mdx");
+const remarkGfm = require("remark-gfm");
+const rehypePrism = require("@mapbox/rehype-prism");
 
 const nextConfig = {
   images: {
@@ -20,4 +20,4 @@ const withMDX = nextMDX({
   },
 });
 
-export default withMDX(nextConfig);
+module.exports = withMDX(nextConfig);
