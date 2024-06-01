@@ -29,7 +29,7 @@ export default function About() {
             transition={{ duration: 0.2, delay: index * 0.1 }}
           >
             <img
-              src="/images/tesla.jpg"
+              src="../../public/images/tesla.jpg"
               width={200}
               height={400}
               alt="about"
