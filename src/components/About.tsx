@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   const images = [
-    '../../../public/images/tesla.jpg',
+    '/images/tesla.jpg',
     '/images/foodie.jpg',
     '/images/tech.jpg',
     '/images/coding.jpg',
@@ -29,7 +29,7 @@ export default function About() {
             transition={{ duration: 0.2, delay: index * 0.1 }}
           >
             <img
-              src={image}
+              src="/images/tesla.jpg"
               width={200}
               height={400}
               alt="about"
