@@ -12,12 +12,18 @@ const nextConfig = {
   },
 };
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
-  },
-});
+const withMDX = async () => {
+  const nextMDX = (await import("@next/mdx")).default;
+  const remarkGfm = (await import("remark-gfm")).default;
+  const rehypePrism = (await import("@mapbox/rehype-prism")).default;
 
-module.exports = withMDX(nextConfig);
+  return nextMDX({
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypePrism],
+    },
+  })(nextConfig);
+};
+
+module.exports = withMDX();
