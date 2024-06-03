@@ -1,23 +1,23 @@
 /** @type {import('next').NextConfig} */
-import nextMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-import rehypePrism from "@mapbox/rehype-prism";
+const withMDX = async () => {
+  const nextMDX = (await import('@next/mdx')).default;
+  const remarkGfm = (await import('remark-gfm')).default;
+  const rehypePrism = (await import('@mapbox/rehype-prism')).default;
 
-const nextConfig = {
-  images: {
-    domains: ["images.unsplash.com", "res.cloudinary.com", "www.alichowdhury.ca", "147.182.153.61"],
-  },
-  experimental: {
-    mdxRs: true,
-  },
+  return nextMDX({
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypePrism],
+    },
+  })({
+    images: {
+      domains: ["images.unsplash.com", "res.cloudinary.com", "www.alichowdhury.ca", "147.182.153.61"],
+    },
+    experimental: {
+      mdxRs: true,
+    },
+  });
 };
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
-  },
-});
-
-module.exports = withMDX(nextConfig);
+module.exports = withMDX();
