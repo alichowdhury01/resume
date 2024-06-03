@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
-const withMDX = require('@next/mdx')({
+import nextMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm';
+import rehypePrism from '@mapbox/rehype-prism';
+
+const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [require('remark-gfm')],
-    rehypePlugins: [require('@mapbox/rehype-prism')],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism],
   },
 });
 
@@ -16,4 +20,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+export default withMDX(nextConfig);
