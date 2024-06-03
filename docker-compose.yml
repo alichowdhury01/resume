@@ -5,8 +5,6 @@ services:
     build: ./
     container_name: nextjs-app
     restart: unless-stopped
-    environment:
-      - NODE_ENV=production
     ports: 
       - "3000:3000"
 
