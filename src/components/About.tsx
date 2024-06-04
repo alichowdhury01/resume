@@ -29,7 +29,7 @@ export default function About() {
             transition={{ duration: 0.2, delay: index * 0.1 }}
           > */}
             <Image
-              src={'/images/coding.jpg'}
+              src={'images/coding.jpg'}
               width={200}
               height={400}
               alt="about"
