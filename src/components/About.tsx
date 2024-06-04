@@ -5,15 +5,27 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   const images = [
-    '/images/tesla.jpg',
-    '/images/foodie.jpg',
-    '/images/tech.jpg',
-    '/images/coding.jpg',
+    {
+      src: '/images/tesla.jpg',
+      alt: 'tesla',
+    },
+    {
+      src: '/images/foodie.jpg',
+      alt: 'foodie',
+    },
+    {
+      src: '/images/tech.jpg',
+      alt: 'tech',
+    },
+    {
+      src: '/images/coding.jpg',
+      alt: 'coding',
+    }
   ];
   return (
     <div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 my-10">
-        {/* {images.map((image, index) => (
+        {images.map((image, index) => (
           <motion.div
             key={'/images/coding.jpg'}
             initial={{
@@ -27,17 +39,16 @@ export default function About() {
               rotate: index % 2 === 0 ? 3 : -3,
             }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
-          > */}
+          >
             <Image
-              src={'images/coding.jpg'}
+              src={image.src}
               width={200}
               height={400}
-              alt="about"
-              unoptimized
+              alt={image.alt}
               className="rounded-md object-cover transform rotate-3 shadow-xl block w-full h-40 md:h-60 hover:rotate-0 transition duration-200"
             />
-          {/* </motion.div>
-        ))} */}
+          </motion.div>
+        ))}
       </div>
 
       <div className="max-w-4xl">
