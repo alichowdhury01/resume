@@ -2,8 +2,6 @@
 import nextMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
-import sharp from 'sharp';
-const withImage=require('next-images')
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -15,13 +13,11 @@ const withMDX = nextMDX({
 
 const nextConfig = {
   images: {
-    // path: '/_next/image',
-    path: ['/_next/image', '/_next/images', '/public/image/', '/_next/public/images/'],
+    domains: ["images.unsplash.com", "res.cloudinary.com", "www.alichowdhury.ca", "147.182.153.61"],
   },
   experimental: {
     mdxRs: true,
   },
 };
-module.exports = withImage()
 
-
+export default withMDX(nextConfig);
